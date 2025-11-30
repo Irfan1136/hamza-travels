@@ -6,954 +6,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamza Travels | Premium Global Journeys</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* 
-           Theme: Royal Azure (Deep Blue, Gold, White)
-           Font: Manrope (Body), Playfair Display (Headings)
-        */
+        /* Theme: Royal Azure (Deep Blue, Gold, White) */
         :root {
             /* Light Mode */
             --primary: #003366;
-            /* Royal Azure */
             --primary-dark: #002244;
             --secondary: #d4af37;
-            /* Metallic Gold */
             --accent: #f0f8ff;
             --text-main: #1e293b;
             --text-light: #64748b;
             --bg-body: #ffffff;
-            /* Crisp White */
             --bg-card: #f8fafc;
             --bg-nav: rgba(255, 255, 255, 0.95);
             --bg-hover: #f1f5f9;
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --radius: 12px;
-            /* Slightly rounded for modern feel */
             --transition: all 0.3s ease;
         }
 
         body.dark-mode {
             /* Dark Mode */
             --primary: #38bdf8;
-            /* Sky Blue */
             --primary-dark: #0ea5e9;
             --secondary: #fbbf24;
-            /* Bright Gold */
             --accent: #0f172a;
             --text-main: #f8fafc;
             --text-light: #94a3b8;
             --bg-body: #0f172a;
-            /* Slate 900 */
             --bg-card: #1e293b;
-            /* Slate 800 */
             --bg-nav: rgba(15, 23, 42, 0.95);
             --bg-hover: #334155;
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.7);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Manrope', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-body);
-            line-height: 1.8;
-            overflow-x: hidden;
-            transition: background-color 0.5s, color 0.5s;
-            letter-spacing: 0.02em;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--text-main);
-            line-height: 1.1;
-            font-weight: 400;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-        }
-
-        .section-padding {
-            padding: 100px 0;
-            scroll-margin-top: 100px;
-        }
-
-        section {
-            scroll-margin-top: 100px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .section-header {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .section-header h2 {
-            font-size: 3.5rem;
-            margin-bottom: 24px;
-            color: var(--primary);
-            display: block;
-            font-style: italic;
-        }
-
-        .section-header p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            max-width: 500px;
-            margin: 0 auto;
-            font-family: 'Manrope', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 40px;
-            border-radius: var(--radius);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 1px solid transparent;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-light {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid white;
-            color: white;
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-light:hover {
-            background: white;
-            color: var(--primary);
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Manrope', sans-serif; color: var(--text-main); background-color: var(--bg-body); line-height: 1.8; overflow-x: hidden; transition: background-color 0.5s, color 0.5s; letter-spacing: 0.02em; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--text-main); line-height: 1.1; font-weight: 400; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+        .section-padding { padding: 100px 0; scroll-margin-top: 100px; }
+        section { scroll-margin-top: 100px; }
+        .text-center { text-align: center; }
+        .section-header { margin-bottom: 80px; text-align: center; }
+        .section-header h2 { font-size: 3.5rem; margin-bottom: 24px; color: var(--primary); display: block; font-style: italic; }
+        .section-header p { font-size: 0.9rem; color: var(--text-light); max-width: 500px; margin: 0 auto; font-family: 'Manrope', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 40px; border-radius: var(--radius); font-weight: 500; cursor: pointer; transition: var(--transition); border: 1px solid transparent; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Manrope', sans-serif; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-light { background: rgba(255, 255, 255, 0.1); border: 1px solid white; color: white; backdrop-filter: blur(5px); }
+        .btn-light:hover { background: white; color: var(--primary); }
 
         /* Navbar */
-        header {
-            background: var(--bg-nav);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100px;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-graphic {
-            position: relative;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-        }
-
-        .logo-graphic .fa-globe-asia {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            opacity: 0.2;
-        }
-
-        .logo-graphic .fa-plane {
-            position: absolute;
-            font-size: 1.4rem;
-            color: var(--primary);
-            transform: rotate(-45deg);
-            z-index: 1;
-        }
-
-        body.dark-mode .logo-graphic .fa-plane {
-            color: var(--text-main);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-main);
-            font-size: 0.85rem;
-            position: relative;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--secondary);
-            transition: 0.4s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .theme-toggle {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--text-light);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-left: auto;
-            margin-right: 20px;
-        }
-
-        .theme-toggle:hover {
-            border-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-        }
+        header { background: var(--bg-nav); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05); transition: var(--transition); }
+        nav { display: flex; justify-content: space-between; align-items: center; height: 100px; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); font-family: 'Cinzel', serif; letter-spacing: 1px; display: flex; align-items: center; }
+        .logo-graphic { position: relative; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; margin-right: 12px; }
+        .logo-graphic .fa-globe-asia { font-size: 2.2rem; color: var(--secondary); opacity: 0.2; }
+        .logo-graphic .fa-plane { position: absolute; font-size: 1.4rem; color: var(--primary); transform: rotate(-45deg); z-index: 1; }
+        body.dark-mode .logo-graphic .fa-plane { color: var(--text-main); }
+        .nav-links { display: flex; gap: 50px; align-items: center; }
+        .nav-links a { font-weight: 500; color: var(--text-main); font-size: 0.85rem; position: relative; text-transform: uppercase; letter-spacing: 1px; font-family: 'Manrope', sans-serif; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--secondary); transition: 0.4s; }
+        .nav-links a:hover::after { width: 100%; }
+        .theme-toggle { background: transparent; color: var(--text-main); border: 1px solid var(--text-light); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); margin-left: auto; margin-right: 20px; }
+        .theme-toggle:hover { border-color: var(--secondary); color: var(--secondary); }
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
 
         @media (max-width: 900px) {
-            .nav-links {
-                position: fixed;
-                top: 100px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 100px);
-                background: var(--bg-nav);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links li {
-                margin: 25px 0;
-            }
-
-            .nav-links a {
-                font-size: 1.2rem;
-            }
+            .nav-links { position: fixed; top: 100px; left: -100%; width: 100%; height: calc(100vh - 100px); background: var(--bg-nav); flex-direction: column; align-items: center; justify-content: center; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+            .nav-links li { margin: 25px 0; }
+            .nav-links a { font-size: 1.2rem; }
         }
 
         /* Hero */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.5) contrast(1.1);
-            transform: scale(1.05);
-            transition: transform 10s ease;
-        }
-
-        .hero:hover .hero-bg {
-            transform: scale(1.1);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            padding: 0 20px;
-            animation: fadeIn 1.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-content h1 {
-            font-size: 6rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: #ffffff;
-            line-height: 1;
-            letter-spacing: -2px;
-            font-style: italic;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-            opacity: 0.9;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-family: 'Manrope', sans-serif;
-        }
+        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.5) contrast(1.1); transform: scale(1.05); transition: transform 10s ease; }
+        .hero:hover .hero-bg { transform: scale(1.1); }
+        .hero-content { position: relative; z-index: 1; max-width: 1000px; padding: 0 20px; animation: fadeIn 1.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-content h1 { font-size: 6rem; font-weight: 400; margin-bottom: 30px; color: #ffffff; line-height: 1; letter-spacing: -2px; font-style: italic; }
+        .hero-content p { font-size: 1.1rem; margin-bottom: 50px; opacity: 0.9; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; font-family: 'Manrope', sans-serif; }
 
         /* Slider */
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-            padding: 20px 0;
-        }
+        .slider-container { position: relative; overflow: hidden; padding: 20px 0; }
+        .slider-track { display: flex; gap: 40px; overflow-x: auto; scroll-behavior: smooth; padding: 20px 5px; -ms-overflow-style: none; scrollbar-width: none; }
+        .slider-track::-webkit-scrollbar { display: none; }
+        .scroll-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); cursor: pointer; z-index: 10; color: var(--primary); border: none; opacity: 0; transition: 0.3s; }
+        .slider-container:hover .scroll-btn { opacity: 1; }
+        .scroll-btn:hover { background: var(--primary); color: white; }
+        .scroll-left { left: 20px; }
+        .scroll-right { right: 20px; }
 
-        .slider-track {
-            display: flex;
-            gap: 40px;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 20px 5px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .slider-track::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scroll-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow-lg);
-            cursor: pointer;
-            z-index: 10;
-            color: var(--primary);
-            border: none;
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .slider-container:hover .scroll-btn {
-            opacity: 1;
-        }
-
-        .scroll-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .scroll-left {
-            left: 20px;
-        }
-
-        .scroll-right {
-            right: 20px;
-        }
-
-        /* Cards - Minimalist Magazine Style */
-        .std-card {
-            min-width: 380px;
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: none;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .std-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-img-wrapper {
-            height: 350px;
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-        }
-
-        .card-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-
-        .std-card:hover .card-img-wrapper img {
-            transform: scale(1.05);
-        }
-
-        .card-body {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .card-title {
-            font-size: 1.6rem;
-            margin-bottom: 5px;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-
-        .card-subtitle {
-            font-size: 0.8rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .card-desc {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-            flex-grow: 1;
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .card-meta {
-            margin-top: auto;
-            padding-top: 15px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            font-size: 0.8rem;
-            color: var(--text-light);
-            display: flex;
-            gap: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .card-meta i {
-            color: var(--secondary);
-            margin-right: 5px;
-        }
+        /* Cards */
+        .std-card { min-width: 380px; background: var(--bg-card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); border: none; display: flex; flex-direction: column; }
+        .std-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .card-img-wrapper { height: 350px; overflow: hidden; width: 100%; position: relative; }
+        .card-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .std-card:hover .card-img-wrapper img { transform: scale(1.05); }
+        .card-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; text-align: left; }
+        .card-title { font-size: 1.6rem; margin-bottom: 5px; color: var(--primary); font-family: 'Playfair Display', serif; font-weight: 600; }
+        .card-subtitle { font-size: 0.8rem; color: var(--secondary); margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .card-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 15px; flex-grow: 1; font-family: 'Manrope', sans-serif; }
+        .card-meta { margin-top: auto; padding-top: 15px; border-top: 1px solid rgba(0, 0, 0, 0.05); font-size: 0.8rem; color: var(--text-light); display: flex; gap: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .card-meta i { color: var(--secondary); margin-right: 5px; }
 
         /* Services */
-        .services-section {
-            background: var(--bg-body);
-            padding: 100px 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            padding: 50px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--secondary);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: transparent;
-            color: var(--secondary);
-            border: 1px solid var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 25px;
-            box-shadow: none;
-        }
+        .services-section { background: var(--bg-body); padding: 100px 0; border-top: 1px solid rgba(0, 0, 0, 0.05); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .service-card { background: var(--bg-card); padding: 50px 30px; border-radius: var(--radius); box-shadow: var(--shadow-sm); transition: var(--transition); text-align: center; border: 1px solid rgba(0, 0, 0, 0.05); }
+        .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--secondary); }
+        .service-icon { width: 70px; height: 70px; background: transparent; color: var(--secondary); border: 1px solid var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 25px; box-shadow: none; }
 
         /* Map */
-        .map-section {
-            background: var(--bg-card);
-        }
-
-        .map-layout {
-            display: flex;
-            flex-direction: column-reverse;
-            gap: 60px;
-        }
-
-        @media (min-width: 900px) {
-            .map-layout {
-                display: grid;
-                grid-template-columns: 1fr 1.5fr;
-                gap: 80px;
-                align-items: start;
-            }
-        }
-
-        .map-list {
-            background: var(--bg-body);
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            max-height: 700px;
-            overflow-y: auto;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .state-item {
-            padding: 20px 0;
-            margin-bottom: 0;
-            border-radius: 0;
-            cursor: pointer;
-            transition: var(--transition);
-            background: transparent;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .state-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .state-header-content {
-            display: flex;
-            align-items: center;
-        }
-
-        .state-item:hover {
-            background: transparent;
-            padding-left: 10px;
-        }
-
-        .state-item.active {
-            border-bottom: 1px solid var(--secondary);
-        }
-
-        .state-item i {
-            color: var(--secondary);
-            margin-right: 20px;
-            font-size: 1.2rem;
-        }
-
-        .state-info h4 {
-            font-size: 1.4rem;
-            margin-bottom: 4px;
-        }
-
-        .state-info p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .region-detail {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            padding: 0;
-            margin-top: 0;
-            opacity: 0;
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .state-item:hover .region-detail,
-        .state-item.active .region-detail {
-            max-height: 200px;
-            padding-top: 15px;
-            margin-top: 10px;
-            opacity: 1;
-        }
-
-        .map-visual {
-            position: relative;
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-            box-shadow: none;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        body.dark-mode .india-map {
-            filter: invert(1) hue-rotate(180deg) brightness(1.5) grayscale(1);
-        }
-
-        .india-map {
-            width: 100%;
-            max-width: 700px;
-            filter: grayscale(100%) opacity(0.8);
-            display: block;
-            transition: filter 0.3s;
-            margin: 0 auto;
-        }
-
-        .india-map:hover {
-            filter: grayscale(0%) opacity(1);
-        }
-
-        .map-hotspot {
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: var(--secondary);
-            border: 2px solid white;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3);
-            transition: transform 0.3s;
-        }
-
-        .map-hotspot:hover {
-            transform: scale(1.5);
-        }
-
-        .hotspot-tooltip {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            background: var(--bg-card);
-            padding: 15px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            pointer-events: none;
-            z-index: 20;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .hotspot-tooltip img {
-            margin-bottom: 10px;
-            height: 120px;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .hotspot-tooltip h5 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .map-hotspot:hover .hotspot-tooltip {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
+        .map-section { background: var(--bg-card); }
+        .map-layout { display: flex; flex-direction: column-reverse; gap: 60px; }
+        @media (min-width: 900px) { .map-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: start; } }
+        .map-list { background: var(--bg-body); padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-sm); max-height: 700px; overflow-y: auto; border: 1px solid rgba(0, 0, 0, 0.05); }
+        .state-item { padding: 20px 0; margin-bottom: 0; border-radius: 0; cursor: pointer; transition: var(--transition); background: transparent; border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .state-header { display: flex; align-items: center; justify-content: space-between; }
+        .state-header-content { display: flex; align-items: center; }
+        .state-item:hover { background: transparent; padding-left: 10px; }
+        .state-item.active { border-bottom: 1px solid var(--secondary); }
+        .state-item i { color: var(--secondary); margin-right: 20px; font-size: 1.2rem; }
+        .state-info h4 { font-size: 1.4rem; margin-bottom: 4px; }
+        .state-info p { font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+        .region-detail { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0; margin-top: 0; opacity: 0; font-size: 0.95rem; color: var(--text-light); line-height: 1.8; }
+        .state-item:hover .region-detail, .state-item.active .region-detail { max-height: 200px; padding-top: 15px; margin-top: 10px; opacity: 1; }
+        .map-visual { position: relative; background: transparent; padding: 0; border-radius: 0; box-shadow: none; min-height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 0 auto; width: 100%; }
+        body.dark-mode .india-map { filter: invert(1) hue-rotate(180deg) brightness(1.5) grayscale(1); }
+        .india-map { width: 100%; max-width: 700px; filter: grayscale(100%) opacity(0.8); display: block; transition: filter 0.3s; margin: 0 auto; }
+        .india-map:hover { filter: grayscale(0%) opacity(1); }
+        .map-hotspot { position: absolute; width: 16px; height: 16px; background: var(--secondary); border: 2px solid white; border-radius: 50%; cursor: pointer; z-index: 10; box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.3); transition: transform 0.3s; }
+        .map-hotspot:hover { transform: scale(1.5); }
+        .hotspot-tooltip { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(10px); background: var(--bg-card); padding: 15px; border-radius: var(--radius); box-shadow: var(--shadow-lg); width: 220px; opacity: 0; visibility: hidden; transition: var(--transition); pointer-events: none; z-index: 20; text-align: center; border: 1px solid rgba(0, 0, 0, 0.1); }
+        .hotspot-tooltip img { margin-bottom: 10px; height: 120px; width: 100%; object-fit: cover; border-radius: 8px; }
+        .hotspot-tooltip h5 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--primary); }
+        .map-hotspot:hover .hotspot-tooltip { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
         /* Hotspot Positions */
-        .hs-kerala {
-            bottom: 15%;
-            left: 35%;
-        }
-
-        .hs-delhi {
-            top: 28%;
-            left: 38%;
-        }
-
-        .hs-mumbai {
-            top: 55%;
-            left: 25%;
-        }
-
-        .hs-kolkata {
-            top: 45%;
-            right: 25%;
-        }
-
-        .hs-manali {
-            top: 20%;
-            left: 38%;
-        }
-
-        .hs-ne {
-            top: 35%;
-            right: 10%;
-        }
-
-        .hs-amritsar {
-            top: 22%;
-            left: 32%;
-        }
-
-        .hs-jaipur {
-            top: 32%;
-            left: 30%;
-        }
-
-        .hs-varanasi {
-            top: 35%;
-            left: 50%;
-        }
-
-        .hs-hyderabad {
-            top: 60%;
-            left: 40%;
-        }
-
-        .hs-goa {
-            top: 65%;
-            left: 25%;
-        }
-
-        .hs-bangalore {
-            top: 70%;
-            left: 38%;
-        }
-
-        .hs-chennai {
-            top: 70%;
-            left: 45%;
-        }
+        .hs-kerala { bottom: 15%; left: 35%; }
+        .hs-delhi { top: 28%; left: 38%; }
+        .hs-mumbai { top: 55%; left: 25%; }
+        .hs-kolkata { top: 45%; right: 25%; }
+        .hs-manali { top: 20%; left: 38%; }
+        .hs-ne { top: 35%; right: 10%; }
+        .hs-amritsar { top: 22%; left: 32%; }
+        .hs-jaipur { top: 32%; left: 30%; }
+        .hs-varanasi { top: 35%; left: 50%; }
+        .hs-hyderabad { top: 60%; left: 40%; }
+        .hs-goa { top: 65%; left: 25%; }
+        .hs-bangalore { top: 70%; left: 38%; }
+        .hs-chennai { top: 70%; left: 45%; }
 
         /* Contact */
-        .contact-section {
-            background: var(--bg-body);
-            padding: 120px 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-layout {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .contact-info {
-            flex: 0 1 700px;
-            background: var(--bg-card);
-            padding: 60px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .info-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .info-icon {
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            color: var(--secondary);
-            border: 1px solid var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-
-        .info-content h4 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            color: var(--text-main);
-        }
-
-        .info-content p {
-            color: var(--text-light);
-            font-family: 'Manrope', sans-serif;
-        }
+        .contact-section { background: var(--bg-body); padding: 120px 0; border-top: 1px solid rgba(0, 0, 0, 0.05); }
+        .contact-layout { display: flex; justify-content: center; gap: 60px; align-items: center; }
+        .contact-info { flex: 0 1 700px; background: var(--bg-card); padding: 60px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid rgba(0, 0, 0, 0.05); text-align: center; }
+        .info-item { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+        .info-item:last-child { margin-bottom: 0; }
+        .info-icon { width: 50px; height: 50px; background: transparent; color: var(--secondary); border: 1px solid var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 15px; }
+        .info-content h4 { font-size: 1.4rem; margin-bottom: 5px; color: var(--text-main); }
+        .info-content p { color: var(--text-light); font-family: 'Manrope', sans-serif; }
 
         /* Footer */
-        footer {
-            background: #0a0a0a;
-            color: white;
-            padding: 100px 0 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-col h4 {
-            color: var(--secondary);
-            margin-bottom: 30px;
-            font-size: 1.4rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 15px;
-            color: #888;
-            transition: 0.3s;
-            font-family: 'Manrope', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-col ul li:hover {
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-
+        footer { background: #0a0a0a; color: white; padding: 100px 0 40px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 60px; margin-bottom: 60px; }
+        .footer-col h4 { color: var(--secondary); margin-bottom: 30px; font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+        .footer-col ul li { margin-bottom: 15px; color: #888; transition: 0.3s; font-family: 'Manrope', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col ul li:hover { color: var(--secondary); padding-left: 5px; }
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3.5rem;
-            }
-
-            .map-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .map-visual {
-                order: -1;
-                min-height: 400px;
-            }
-
-            .contact-layout {
-                flex-direction: column;
-            }
-
-            .contact-info {
-                padding: 30px;
-            }
+            .hero-content h1 { font-size: 3.5rem; }
+            .map-layout { grid-template-columns: 1fr; }
+            .map-visual { order: -1; min-height: 400px; }
+            .contact-layout { flex-direction: column; }
+            .contact-info { padding: 30px; }
         }
     </style>
 </head>
@@ -984,7 +218,7 @@
     </header>
 
     <section id="home" class="hero">
-        <img src="assets/images/hero-bg.jpg" alt="Travel" class="hero-bg">
+        <img src="hero-bg.jpg" alt="Travel" class="hero-bg">
         <div class="hero-content">
             <h1>The Art of Travel</h1>
             <p>Curated journeys for the discerning traveler. Experience the world in unparalleled luxury.</p>
@@ -1002,36 +236,29 @@
                 <p>Exclusive experiences tailored to your desires.</p>
             </div>
             <div class="slider-container">
-                <button class="scroll-btn scroll-left" onclick="scrollSlider('pkg-slider', -400)"><i
-                        class="fas fa-chevron-left"></i></button>
-                <button class="scroll-btn scroll-right" onclick="scrollSlider('pkg-slider', 400)"><i
-                        class="fas fa-chevron-right"></i></button>
+                <button class="scroll-btn scroll-left" onclick="scrollSlider('pkg-slider', -400)"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-btn scroll-right" onclick="scrollSlider('pkg-slider', 400)"><i class="fas fa-chevron-right"></i></button>
                 <div class="slider-track" id="pkg-slider">
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/pkg-family.jpg" alt="Family">
-                        </div>
+                        <div class="card-img-wrapper"><img src="pkg-family.jpg" alt="Family"></div>
                         <div class="card-body">
                             <h3 class="card-title">Family Legacy</h3>
                             <p class="card-subtitle">Bonding & Heritage</p>
-                            <p class="card-desc">Create timeless memories with bespoke itineraries designed for
-                                multi-generational travel.</p>
+                            <p class="card-desc">Create timeless memories with bespoke itineraries designed for multi-generational travel.</p>
                             <div class="card-meta"><i class="fas fa-user-friends"></i> Private Groups</div>
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/pkg-college.jpg" alt="College">
-                        </div>
+                        <div class="card-img-wrapper"><img src="pkg-college.jpg" alt="College"></div>
                         <div class="card-body">
                             <h3 class="card-title">Youth Expeditions</h3>
                             <p class="card-subtitle">Adventure & Discovery</p>
-                            <p class="card-desc">Thrilling journeys for the young at heart, blending culture with
-                                adrenaline.</p>
+                            <p class="card-desc">Thrilling journeys for the young at heart, blending culture with adrenaline.</p>
                             <div class="card-meta"><i class="fas fa-compass"></i> Guided Tours</div>
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/pkg-office.jpg" alt="Office">
-                        </div>
+                        <div class="card-img-wrapper"><img src="pkg-office.jpg" alt="Office"></div>
                         <div class="card-body">
                             <h3 class="card-title">Corporate Retreats</h3>
                             <p class="card-subtitle">Strategy & Wellness</p>
@@ -1040,8 +267,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/pkg-spiritual.jpg" alt="Spiritual">
-                        </div>
+                        <div class="card-img-wrapper"><img src="pkg-spiritual.jpg" alt="Spiritual"></div>
                         <div class="card-body">
                             <h3 class="card-title">Spiritual Sanctuaries</h3>
                             <p class="card-subtitle">Peace & Reflection</p>
@@ -1097,8 +323,7 @@
                                 </div>
                             </div><i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="region-detail"><strong>Highlights:</strong><br>Munnar, Alleppey, Coorg, Ooty,
-                            Kodaikanal, Wayanad, Mysore, Hampi</div>
+                        <div class="region-detail"><strong>Highlights:</strong><br>Munnar, Alleppey, Coorg, Ooty, Kodaikanal, Wayanad, Mysore, Hampi</div>
                     </div>
                     <div class="state-item">
                         <div class="state-header">
@@ -1109,8 +334,7 @@
                                 </div>
                             </div><i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="region-detail"><strong>Highlights:</strong><br>Jaipur, Udaipur, Jaisalmer, Goa, Rann
-                            of Kutch, Gir</div>
+                        <div class="region-detail"><strong>Highlights:</strong><br>Jaipur, Udaipur, Jaisalmer, Goa, Rann of Kutch, Gir</div>
                     </div>
                     <div class="state-item">
                         <div class="state-header">
@@ -1121,8 +345,7 @@
                                 </div>
                             </div><i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="region-detail"><strong>Highlights:</strong><br>Kashmir, Ladakh, Manali, Shimla,
-                            Dharamshala, Spiti, Rishikesh</div>
+                        <div class="region-detail"><strong>Highlights:</strong><br>Kashmir, Ladakh, Manali, Shimla, Dharamshala, Spiti, Rishikesh</div>
                     </div>
                     <div class="state-item">
                         <div class="state-header">
@@ -1133,8 +356,7 @@
                                 </div>
                             </div><i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="region-detail"><strong>Highlights:</strong><br>Gangtok, Darjeeling, Shillong,
-                            Kaziranga, Tawang</div>
+                        <div class="region-detail"><strong>Highlights:</strong><br>Gangtok, Darjeeling, Shillong, Kaziranga, Tawang</div>
                     </div>
                     <div class="state-item">
                         <div class="state-header">
@@ -1145,8 +367,7 @@
                                 </div>
                             </div><i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="region-detail"><strong>Highlights:</strong><br>Delhi, Mumbai, Bangalore, Hyderabad,
-                            Chennai, Kolkata, Pondicherry</div>
+                        <div class="region-detail"><strong>Highlights:</strong><br>Delhi, Mumbai, Bangalore, Hyderabad, Chennai, Kolkata, Pondicherry</div>
                     </div>
                     <div class="state-item">
                         <div class="state-header">
@@ -1157,69 +378,68 @@
                                 </div>
                             </div><i class="fas fa-chevron-down"></i>
                         </div>
-                        <div class="region-detail"><strong>Highlights:</strong><br>Varanasi, Amritsar, Rishikesh,
-                            Haridwar, Tirupati</div>
+                        <div class="region-detail"><strong>Highlights:</strong><br>Varanasi, Amritsar, Rishikesh, Haridwar, Tirupati</div>
                     </div>
                 </div>
                 <div class="map-visual">
-                    <img src="assets/images/map-india.png" alt="India Map" class="india-map">
+                    <img src="map-india.png" alt="India Map" class="india-map">
                     <div class="map-hotspot hs-kerala">
-                        <div class="hotspot-tooltip"><img src="assets/images/dest-kerala.jpg" alt="Kerala">
+                        <div class="hotspot-tooltip"><img src="dest-kerala.jpg" alt="Kerala">
                             <h5>Kerala</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-delhi">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-delhi.jpg" alt="Delhi">
+                        <div class="hotspot-tooltip"><img src="thumb-delhi.jpg" alt="Delhi">
                             <h5>Delhi</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-mumbai">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-mumbai.jpg" alt="Mumbai">
+                        <div class="hotspot-tooltip"><img src="thumb-mumbai.jpg" alt="Mumbai">
                             <h5>Mumbai</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-manali">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-manali.jpg" alt="Manali">
+                        <div class="hotspot-tooltip"><img src="thumb-manali.jpg" alt="Manali">
                             <h5>Manali</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-ne">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-ne.jpg" alt="Sikkim">
+                        <div class="hotspot-tooltip"><img src="thumb-ne.jpg" alt="Sikkim">
                             <h5>North East</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-amritsar">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-amritsar.jpg" alt="Amritsar">
+                        <div class="hotspot-tooltip"><img src="thumb-amritsar.jpg" alt="Amritsar">
                             <h5>Amritsar</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-jaipur">
-                        <div class="hotspot-tooltip"><img src="assets/images/dest-rajasthan.jpg" alt="Jaipur">
+                        <div class="hotspot-tooltip"><img src="dest-rajasthan.jpg" alt="Jaipur">
                             <h5>Jaipur</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-varanasi">
-                        <div class="hotspot-tooltip"><img src="assets/images/pkg-spiritual.jpg" alt="Varanasi">
+                        <div class="hotspot-tooltip"><img src="pkg-spiritual.jpg" alt="Varanasi">
                             <h5>Varanasi</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-hyderabad">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-hyderabad.jpg" alt="Hyderabad">
+                        <div class="hotspot-tooltip"><img src="thumb-hyderabad.jpg" alt="Hyderabad">
                             <h5>Hyderabad</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-goa">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-goa.jpg" alt="Goa">
+                        <div class="hotspot-tooltip"><img src="thumb-goa.jpg" alt="Goa">
                             <h5>Goa</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-bangalore">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-bangalore.jpg" alt="Bangalore">
+                        <div class="hotspot-tooltip"><img src="thumb-bangalore.jpg" alt="Bangalore">
                             <h5>Bangalore</h5>
                         </div>
                     </div>
                     <div class="map-hotspot hs-chennai">
-                        <div class="hotspot-tooltip"><img src="assets/images/thumb-chennai.jpg" alt="Chennai">
+                        <div class="hotspot-tooltip"><img src="thumb-chennai.jpg" alt="Chennai">
                             <h5>Chennai</h5>
                         </div>
                     </div>
@@ -1232,13 +452,11 @@
                     <p>Handpicked locations for the ultimate escape.</p>
                 </div>
                 <div class="slider-container">
-                    <button class="scroll-btn scroll-left" onclick="scrollSlider('india-slider', -400)"><i
-                            class="fas fa-chevron-left"></i></button>
-                    <button class="scroll-btn scroll-right" onclick="scrollSlider('india-slider', 400)"><i
-                            class="fas fa-chevron-right"></i></button>
+                    <button class="scroll-btn scroll-left" onclick="scrollSlider('india-slider', -400)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="scroll-btn scroll-right" onclick="scrollSlider('india-slider', 400)"><i class="fas fa-chevron-right"></i></button>
                     <div class="slider-track" id="india-slider">
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-kashmir.jpg" alt="Kashmir"></div>
+                            <div class="card-img-wrapper"><img src="dest-kashmir.jpg" alt="Kashmir"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Kashmir</h3>
                                 <p class="card-subtitle">Paradise on Earth</p>
@@ -1246,8 +464,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-rajasthan.jpg" alt="Rajasthan">
-                            </div>
+                            <div class="card-img-wrapper"><img src="dest-rajasthan.jpg" alt="Rajasthan"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Rajasthan</h3>
                                 <p class="card-subtitle">Land of Kings</p>
@@ -1255,7 +472,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-kerala.jpg" alt="Kerala"></div>
+                            <div class="card-img-wrapper"><img src="dest-kerala.jpg" alt="Kerala"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Kerala</h3>
                                 <p class="card-subtitle">God's Own Country</p>
@@ -1263,7 +480,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-ladakh.jpg" alt="Ladakh"></div>
+                            <div class="card-img-wrapper"><img src="dest-ladakh.jpg" alt="Ladakh"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Ladakh</h3>
                                 <p class="card-subtitle">High Passes</p>
@@ -1271,8 +488,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-ooty.jpg" alt="Ooty">
-                            </div>
+                            <div class="card-img-wrapper"><img src="dest-ooty.jpg" alt="Ooty"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Ooty</h3>
                                 <p class="card-subtitle">Queen of Hills</p>
@@ -1280,7 +496,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-coorg.jpg" alt="Coorg"></div>
+                            <div class="card-img-wrapper"><img src="dest-coorg.jpg" alt="Coorg"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Coorg</h3>
                                 <p class="card-subtitle">Scotland of India</p>
@@ -1288,8 +504,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-rishikesh.jpg" alt="Rishikesh">
-                            </div>
+                            <div class="card-img-wrapper"><img src="dest-rishikesh.jpg" alt="Rishikesh"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Rishikesh</h3>
                                 <p class="card-subtitle">Yoga Capital</p>
@@ -1297,7 +512,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-mysore.jpg" alt="Mysore"></div>
+                            <div class="card-img-wrapper"><img src="dest-mysore.jpg" alt="Mysore"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Mysore</h3>
                                 <p class="card-subtitle">City of Palaces</p>
@@ -1305,7 +520,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-hampi.jpg" alt="Hampi"></div>
+                            <div class="card-img-wrapper"><img src="dest-hampi.jpg" alt="Hampi"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Hampi</h3>
                                 <p class="card-subtitle">Lost Kingdom</p>
@@ -1313,8 +528,7 @@
                             </div>
                         </div>
                         <div class="std-card">
-                            <div class="card-img-wrapper"><img src="assets/images/dest-pondicherry.jpg"
-                                    alt="Pondicherry"></div>
+                            <div class="card-img-wrapper"><img src="dest-pondicherry.jpg" alt="Pondicherry"></div>
                             <div class="card-body">
                                 <h3 class="card-title">Pondicherry</h3>
                                 <p class="card-subtitle">French Colony</p>
@@ -1334,14 +548,11 @@
                 <p>Beyond borders, into the extraordinary.</p>
             </div>
             <div class="slider-container">
-                <button class="scroll-btn scroll-left" onclick="scrollSlider('intl-slider', -400)"><i
-                        class="fas fa-chevron-left"></i></button>
-                <button class="scroll-btn scroll-right" onclick="scrollSlider('intl-slider', 400)"><i
-                        class="fas fa-chevron-right"></i></button>
+                <button class="scroll-btn scroll-left" onclick="scrollSlider('intl-slider', -400)"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-btn scroll-right" onclick="scrollSlider('intl-slider', 400)"><i class="fas fa-chevron-right"></i></button>
                 <div class="slider-track" id="intl-slider">
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-paris.jpg" alt="Paris">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-paris.jpg" alt="Paris"></div>
                         <div class="card-body">
                             <h3 class="card-title">Paris</h3>
                             <p class="card-subtitle">France</p>
@@ -1349,8 +560,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-london.jpg" alt="London">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-london.jpg" alt="London"></div>
                         <div class="card-body">
                             <h3 class="card-title">London</h3>
                             <p class="card-subtitle">United Kingdom</p>
@@ -1358,8 +568,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-maldives.jpg" alt="Maldives">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-maldives.jpg" alt="Maldives"></div>
                         <div class="card-body">
                             <h3 class="card-title">Maldives</h3>
                             <p class="card-subtitle">Indian Ocean</p>
@@ -1367,7 +576,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-singapore.jpg" alt="Singapore"></div>
+                        <div class="card-img-wrapper"><img src="intl-singapore.jpg" alt="Singapore"></div>
                         <div class="card-body">
                             <h3 class="card-title">Singapore</h3>
                             <p class="card-subtitle">Asia</p>
@@ -1375,8 +584,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-thailand.jpg" alt="Thailand">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-thailand.jpg" alt="Thailand"></div>
                         <div class="card-body">
                             <h3 class="card-title">Thailand</h3>
                             <p class="card-subtitle">Southeast Asia</p>
@@ -1384,8 +592,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-switzerland.jpg" alt="Switzerland">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-switzerland.jpg" alt="Switzerland"></div>
                         <div class="card-body">
                             <h3 class="card-title">Switzerland</h3>
                             <p class="card-subtitle">Europe</p>
@@ -1393,8 +600,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-bali.jpg" alt="Bali">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-bali.jpg" alt="Bali"></div>
                         <div class="card-body">
                             <h3 class="card-title">Bali</h3>
                             <p class="card-subtitle">Indonesia</p>
@@ -1402,8 +608,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-vietnam.jpg" alt="Vietnam">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-vietnam.jpg" alt="Vietnam"></div>
                         <div class="card-body">
                             <h3 class="card-title">Vietnam</h3>
                             <p class="card-subtitle">Southeast Asia</p>
@@ -1411,8 +616,7 @@
                         </div>
                     </div>
                     <div class="std-card">
-                        <div class="card-img-wrapper"><img src="assets/images/intl-usa.jpg" alt="USA">
-                        </div>
+                        <div class="card-img-wrapper"><img src="intl-usa.jpg" alt="USA"></div>
                         <div class="card-body">
                             <h3 class="card-title">USA</h3>
                             <p class="card-subtitle">North America</p>
@@ -1466,14 +670,10 @@
             <div class="footer-content">
                 <div class="footer-col">
                     <div class="logo" style="color: white; margin-bottom: 20px;">
-                        <div class="logo-graphic">
-                            <i class="fas fa-globe-asia"></i>
-                            <i class="fas fa-plane" style="color: white;"></i>
-                        </div>
+                        <div class="logo-graphic"><i class="fas fa-globe-asia"></i><i class="fas fa-plane" style="color: white;"></i></div>
                         HAMZA<span style="color: var(--secondary);">TRAVELS</span>
                     </div>
-                    <p style="color: #888; font-family: 'Manrope', sans-serif;">Curating unforgettable journeys since
-                        2024.</p>
+                    <p style="color: #888; font-family: 'Manrope', sans-serif;">Curating unforgettable journeys since 2024.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Explore</h4>
@@ -1486,18 +686,16 @@
                 </div>
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <div style="display: flex; gap: 20px; font-size: 1.2rem;"><i class="fab fa-instagram"></i><i
-                            class="fab fa-facebook"></i><i class="fab fa-twitter"></i></div>
+                    <div style="display: flex; gap: 20px; font-size: 1.2rem;"><i class="fab fa-instagram"></i><i class="fab fa-facebook"></i><i class="fab fa-twitter"></i></div>
                 </div>
             </div>
-            <div class="text-center"
-                style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; color: #444; font-family: 'Manrope', sans-serif; font-size: 0.8rem;">
+            <div class="text-center" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; color: #444; font-family: 'Manrope', sans-serif; font-size: 0.8rem;">
                 <p>&copy; 2024 Hamza Travels. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-   <script>
+    <script>
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const icon = document.querySelector('.theme-toggle i');
@@ -1566,8 +764,6 @@
         $zoho.salesiq = $zoho.salesiq || { ready: function() {} };
     </script>
     <script id="zsiqscript" src="https://salesiq.zohopublic.in/widget?wc=siq4c1ea51ae46b40034cec28192e141219ed4f53ffeabcd446e151c86675f0b767" defer></script>
+
 </body>
-
 </html>
-
-
