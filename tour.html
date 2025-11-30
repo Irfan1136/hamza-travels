@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages | WanderLuxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Shared Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+        :root {
+            --primary-bg: #0f172a;
+            --secondary-bg: #1e293b;
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --text-light: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Specific Styles */
+        .packages-section {
+            padding: 100px 0;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+            color: var(--text-light);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: var(--secondary-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .card-price {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-features {
+            margin-bottom: 1.5rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .card-features li {
+            margin-bottom: 0.5rem;
+        }
+
+        .card-features i {
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-bg);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-links.active {
+                display: flex;
+                animation: slideDown 0.3s ease forwards;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <!-- Note: Changed index.html to tour.html for your setup -->
+                <a href="tour.html" class="logo">Wander<span>Luxe</span></a>
+                <ul class="nav-links">
+                    <li><a href="tour.html">Home</a></li>
+                    <li><a href="packages.html" class="active">Packages</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container packages-section">
+        <h1 class="section-title" style="margin-top: 2rem;">Curated Packages</h1>
+        <p class="section-subtitle">Choose your perfect getaway</p>
+
+        <!-- College Trips -->
+        <h2 class="category-title">College Trips</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Camping" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Mountain Camping</h3>
+                    <span class="card-price">$199 / person</span>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 3 Days, 2 Nights</li>
+                        <li><i class="fas fa-check"></i> Bonfire & Music</li>
+                        <li><i class="fas fa-check"></i> Trekking Included</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Book Now</a>
+                </div>
+            </div>
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Goa Beach" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Goa Beach Party</h3>
+                    <span class="card-price">$299 / person</span>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 4 Days, 3 Nights</li>
+                        <li><i class="fas fa-check"></i> Beach Resort Stay</li>
+                        <li><i class="fas fa-check"></i> Water Sports</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- School Trips -->
+        <h2 class="category-title">School Trips</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1566127444979-b3d2b654e3d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Museum" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">History & Science</h3>
+                    <span class="card-price">$150 / student</span>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 1 Day Trip</li>
+                        <li><i class="fas fa-check"></i> Museum Entry Fees</li>
+                        <li><i class="fas fa-check"></i> Lunch Included</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Book Now</a>
+                </div>
+            </div>
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Zoo" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Wildlife Safari</h3>
+                    <span class="card-price">$180 / student</span>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> Guided Zoo Tour</li>
+                        <li><i class="fas fa-check"></i> Educational Session</li>
+                        <li><i class="fas fa-check"></i> Safe Transport</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Couple Trips -->
+        <h2 class="category-title">Couple Trips</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1439066615861-d1fb8bc3adc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Maldives" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Maldives Escape</h3>
+                    <span class="card-price">$1200 / couple</span>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 5 Days, 4 Nights</li>
+                        <li><i class="fas fa-check"></i> Overwater Villa</li>
+                        <li><i class="fas fa-check"></i> Candlelight Dinner</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Book Now</a>
+                </div>
+            </div>
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Paris" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Romantic Paris</h3>
+                    <span class="card-price">$1500 / couple</span>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 4 Days, 3 Nights</li>
+                        <li><i class="fas fa-check"></i> Eiffel Tower Tour</li>
+                        <li><i class="fas fa-check"></i> Seine River Cruise</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline" style="width: 100%; text-align: center;">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script -->
+    <script>
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.package-card, .section-title, .section-subtitle').forEach(el => {
+            el.style.opacity = '0'; el.style.transform = 'translateY(30px)'; el.style.transition = 'all 0.6s ease-out'; observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
